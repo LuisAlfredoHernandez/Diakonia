@@ -1,3 +1,7 @@
 {
-  "recommendations": ["Vue.volar"]
+  "recommendations": [
+    "johnsoncodehk.volar",
+    "dbaeumer.vscode-eslint",
+    "jawei.autopreviewer"
+  ]
 }

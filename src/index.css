@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Valor fijo del step */
+
+  .step-item-line:not(:last-child) {
+    @apply w-full after:content-[''] after:w-full after:h-1 after:border-b after:border-4 after:inline-block;
+  }
+  .step-item {
+    /* @apply text-gray-500; */
+    @apply text-gray-500 dark:text-gray-500 dark:after:border-gray-800 after:border-gray-100;
+  }
+  .step-item div {
+    @apply bg-gray-100;
+  }
+
+  /* Se aplica cuando la etap es la actual */
+
+  .step-item.step-item-active {
+    @apply text-blue-600 dark:text-blue-500 dark:after:border-blue-800 after:border-blue-100;
+  }
+  .step-item.step-item-active div {
+    @apply bg-blue-100;
+  }
+  .step-item.step-item-active svg {
+    @apply dark:text-blue-500 text-blue-700;
+  }
+
+  /* Se Aplica cuando sea exitoso */
+
+  .step-item.step-item-success {
+    /* @apply bg-green-100 after:border-green-400 text-green-700; */
+    @apply text-green-600 dark:text-green-500 dark:after:border-green-800 after:border-green-100;
+  }
+  .step-item.step-item-success div {
+    @apply bg-green-100;
+  }
+  .step-item.step-item-success svg {
+    @apply dark:text-green-500 text-green-700;
+  }
+
+  /* Se aplica cuando la etapa tiene error */
+
+  .step-item.step-item-error {
+    @apply text-red-500 dark:text-red-500 dark:after:border-red-800 after:border-red-100;
+  }
+  .step-item.step-item-error div {
+    @apply bg-red-100;
+  }
+  .step-item.step-item-error svg {
+    @apply dark:text-red-500 text-red-700;
+  }
+}
+
+
+.custom-file-upload{
+  background: #f7f7f7; 
+  padding: 5px;
+  border: 1px solid #e3e3e3; 
+  border-radius: 5px; 
+  border: 1px solid #ccc; 
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
