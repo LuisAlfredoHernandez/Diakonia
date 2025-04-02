@@ -41,11 +41,9 @@
           </button>
           <RouterLink to="/" class="flex ml-2 md:mr-24">
             <img
-              src="https://globmaticrd.com/images/globmaticrd/Logo-Header-m.png"
-              class="h-8 mr-3"
+              src="../../../public/images/DIAKONIA.png"
+              class="h-10 w-30 mr-5"
               alt="FlowBite Logo"
-              width="100"
-              height="100"
             />
           </RouterLink>
         </div>
