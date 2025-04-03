@@ -1,5 +1,6 @@
 import Index from "~/views/cl/index.vue";
-import ServicesIndex from "~/views/cl/servicios/services.vue";
+import ServicesIndex from "~/views/cl/servicios/index.vue";
+import Services from "~/views/cl/servicios/services.vue";
 import ServicesContractors from "~/views/cl/servicios/contractors.vue";
 import ClientChat from "~/views/cl/servicios/chat.vue";
 
@@ -34,7 +35,17 @@ export default [
         },
         children: [
           {
-            path: "contratistas",
+            path: "",
+            name: RouterNames.CLIENT_CONTRATISTA_BASE,
+            component: Services,
+            meta: {
+              title: "contratista",
+              requiredAuth: true,
+              allowed: allowed,
+            },
+          },
+          {
+            path: "contratista",
             name: RouterNames.CLIENT_CONTRATISTA,
             component: ServicesContractors,
             meta: {

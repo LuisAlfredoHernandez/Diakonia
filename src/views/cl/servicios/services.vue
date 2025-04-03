@@ -36,7 +36,7 @@
       </Input>
     </div>
 
-    <Button class="mt-10">
+    <Button class="mt-10" @click="navigateToContactorScreen()">
       <template #prefix>
         <svg
           class="w-5 h-5"
@@ -60,10 +60,15 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { Button, Input, Select } from "flowbite-vue";
-import { useEpiStore } from "../../../store/modules/platform";
+import { RouterNames } from "~/enums";
 
 const querySearch = ref("");
 const selected = ref("");
+const router = useRouter();
+
+const navigateToContactorScreen = () => {
+  router.push({ name: RouterNames.CLIENT_CONTRATISTA });
+};
 
 const countries = [
   { value: "elec", name: "Electricista" },
