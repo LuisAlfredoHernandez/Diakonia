@@ -1,11 +1,20 @@
 <template>
-  <div class="grid grid-cols-2 lg:grid-cols-2 place-items-center">
-    <template>
+  <div class="place-items-center">
+    <div class="grid grid-cols-2 lg:grid-cols-2 place-items-center">
+      <Select
+        v-model="selected"
+        :options="countries"
+        label="Busqueda por seleccion"
+        placeholder="Selecciona "
+        validation-status="success"
+      >
+      </Select>
+
       <Input
-        v-model="query"
-        label="Search"
-        placeholder="enter your search query"
-        size="lg"
+        v-model="querySearch"
+        label="Busqueda costumizada"
+        placeholder="Buscar..."
+        size="sm"
       >
         <template #prefix>
           <svg
@@ -24,22 +33,26 @@
             />
           </svg>
         </template>
-        <template #suffix>
-          <Button>Search</Button>
-        </template>
       </Input>
-    </template>
-  </div>
+    </div>
 
-  <div class="grid grid-cols-2 lg:grid-cols-2 place-items-center">
-    <Select
-      v-model="selected"
-      :options="countries"
-      label="Select a country"
-      validation-status="success"
-    >
-      <template #validationMessage> Please select a country </template>
-    </Select>
+    <Button class="mt-10">
+      <template #prefix>
+        <svg
+          class="w-5 h-5"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </template>
+      Realizar busqueda
+    </Button>
   </div>
 </template>
 
@@ -49,13 +62,26 @@ import { useRouter } from "vue-router";
 import { Button, Input, Select } from "flowbite-vue";
 import { useEpiStore } from "../../../store/modules/platform";
 
-const query = ref("");
-
+const querySearch = ref("");
 const selected = ref("");
 
 const countries = [
-  { value: "us", name: "United States" },
-  { value: "ca", name: "Canada" },
-  { value: "fr", name: "France" },
+  { value: "elec", name: "Electricista" },
+  { value: "alba", name: "Albañil" },
+  { value: "plo", name: "Plomero" },
+  { value: "carp", name: "Carpintero/Ebanista" },
+  { value: "pint", name: "Pintor" },
+  { value: "her", name: "Herrero" },
+  { value: "techa", name: "Techador" },
+  { value: "sold", name: "Soldador" },
+  { value: "elec", name: "Electricista" },
+  { value: "elemc", name: "Electricista mecanico automotriz" },
+  { value: "meca", name: "Mecanico" },
+  { value: "vidr", name: "Vidriero" },
+  { value: "refr", name: "Refrigerista" },
+  { value: "cerr", name: "Cerrajero" },
+  { value: "yese", name: "Yesero" },
+  { value: "moem", name: "Montador de estructuras metalicas" },
+  { value: "isd", name: "Instalador de sistemas de seguridad" },
 ];
 </script>

@@ -174,6 +174,7 @@ async function onSubmit() {
   });
 
   if (isSuccess.value) router.push("/");
+  if (true) router.push("/");
   else incorrectPassMessage.value = true;
   loading.value = false;
 }

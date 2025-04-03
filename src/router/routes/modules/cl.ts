@@ -27,7 +27,7 @@ export default [
     },
     children: [
       {
-        path: "/servicios",
+        path: "servicios",
         name: RouterNames.CLIENT_SERVICIOS,
         components: {
           default: ServicesIndex,

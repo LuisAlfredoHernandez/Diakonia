@@ -1,5 +1,5 @@
 import layout from "~/router/routes/layout";
-import ExternalLayout from "../../layouts/external/ExternalLayout.vue";
+import ExternalLayout from "~/layouts/external/ExternalLayout.vue";
 import Login from "~/views/auth/login.vue";
 
 const auth = {

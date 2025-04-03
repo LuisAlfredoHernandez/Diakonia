@@ -4,8 +4,8 @@ import {
   createWebHistory,
   type RouteRecordRaw,
 } from "vue-router";
-import { useUserStore } from "~/store/modules/user";
 
+import { useUserStore } from "~/store/modules/user";
 import routes from "./routes";
 import { UserTypeEnum } from "~/enums/userTypeEnum";
 import type { UserInfo } from "#/store";
@@ -22,7 +22,6 @@ router.beforeEach(async (to, from) => {
   const token = userStore.getToken;
   const user: Nullable<UserInfo> = userStore.getUserInfo;
 
-  if (to.fullPath === "/home") return true;
   if (token && to.fullPath === "/login") return "/";
   if (to.fullPath === "/login") return true;
   if (!token || token === null || token === undefined || token === "")

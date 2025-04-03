@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 import { formFormatUrl } from "~/utils/postForm";
 import type { AuthLoginResponse } from "#/http";
 import type { UserInfo } from "#/store";
+import { UserTypeEnum } from "~/enums/userTypeEnum";
 
 interface UserState {
   userInfo: Nullable<UserInfo>;
@@ -71,28 +72,29 @@ export const useUserStore = defineStore("user-app", {
   },
   actions: {
     async login(payload: LoginParams) {
-      const body = formFormatUrl(payload);
+      // const body = formFormatUrl(payload);
 
-      const { error, data, isFinished } = await useFetch<AuthLoginResponse>(
-        "/api/v1/user_platform/credentials",
-        {
-          beforeFetch({ options }) {
-            options.headers = {
-              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-            };
-          },
-        }
-      )
-        .post(body)
-        .json<AuthLoginResponse>();
+      // const { error, data, isFinished } = await useFetch<AuthLoginResponse>(
+      //   "/api/v1/user_platform/credentials",
+      //   {
+      //     beforeFetch({ options }) {
+      //       options.headers = {
+      //         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      //       };
+      //     },
+      //   }
+      // )
+      //   .post(body)
+      //   .json<AuthLoginResponse>();
 
-      if (isFinished.value && !error.value) {
-        this.data.token = data.value?.access_token;
-        //flow commmented in case the userInfo feature is needed
-        // await this.loadMe();
-        // return !!this.data.userInfo;
-        return !!this.data.token
-      }
+      // if (isFinished.value && !error.value) {
+      // this.data.token = data.value?.access_token;
+      this.data.token = "cambia la funcion en el store del user";
+      //flow commmented in case the userInfo feature is needed
+      // await this.loadMe();
+      // return !!this.data.userInfo;
+      return !!this.data.token;
+      // }
 
       return false;
     },
@@ -122,10 +124,22 @@ export const useUserStore = defineStore("user-app", {
         },
       });
 
-      const response = await meFetch.get().json<UserInfo>();
+      // const response = await meFetch.get().json<UserInfo>();
 
-      if (!response.canAbort.value && response.statusCode.value === 200) {
-        const user: UserInfo | null = response.data.value;
+      const responseUserValue: UserInfo = {
+        id: 123132,
+        full_name: "kakato",
+        email: "string",
+        is_active: true,
+        is_superuser: true,
+        user_type: UserTypeEnum.SUPER_ADMIN,
+        password: "string",
+      };
+
+      // if (!response.canAbort.value && response.statusCode.value === 200) {
+      if (responseUserValue) {
+        // const user: UserInfo | null = response.data.value;
+        const user: UserInfo | null = responseUserValue;
         if (user) {
           user.password = "";
         }
