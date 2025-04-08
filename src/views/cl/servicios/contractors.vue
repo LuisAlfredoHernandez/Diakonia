@@ -17,7 +17,7 @@
   </button>
   <div class="mt-10 grid place-items-center">
     <div class="mt-5 grid grid-cols-1 lg:grid-cols-1 place-items-center">
-      <pre>Distancia en radio (km) a tu posicion: {{ rangeValue }}</pre>
+      <pre>Distancia en radio a tu posicion: {{ rangeValue }} km</pre>
       <Range
         v-model="rangeValue"
         :max="'15'"
@@ -48,6 +48,7 @@
     </div>
 
     <div class="mt-10">
+      <!-- <Carousel> </Carousel> -->
       <ProviderCard />
     </div>
   </div>
@@ -56,7 +57,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
-import { Select, Range } from "flowbite-vue";
+import { Select, Range, Carousel } from "flowbite-vue";
 import ProviderCard from "../components/ProviderCard.vue";
 
 const router = useRouter();
@@ -118,7 +119,7 @@ const countries: Cities[] = [
   },
 ];
 
-const selectedCountryCode = ref<string>(""); // Código inicial
+const selectedCountryCode = ref<string>("");
 const selectedCityCode = ref<string>("");
 
 // ===== Opciones para los selects (formato {value, label}) =====

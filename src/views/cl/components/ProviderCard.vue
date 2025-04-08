@@ -1,9 +1,13 @@
 <template>
   <TheCard variant="horizontal">
     <div class="grid grid-cols-2">
-      <div class="col1Container">
+      <div class="providerDataContainer">
         <p class="text-sm">Servicios realizados: 22</p>
-        <NavbarLink class="text-sm mr-2 list-none italic mt-5"
+        <div class="mt-5 flex">
+          <p class="text-sm">Valoracion:</p>
+          <Rating :rating="ratingValue" />
+        </div>
+        <NavbarLink class="text-left text-sm list-none italic mt-5"
           >Ver Comentarios
         </NavbarLink>
         <p class="text-sm mt-10">Ult vez hace (hr/min): {{ "02:15" }}</p>
@@ -41,7 +45,7 @@
           Contactar
         </Button>
       </div>
-      <div class="verificationContainer">
+      <div class="providerImageContainer grid justify-center">
         <div class="flex flex-cols-2 justify-center">
           <p class="text-sm underline italic text-center mt-5">
             {{ isProviderVerified ? "Verificado" : "Sin verficicar" }}
@@ -81,6 +85,7 @@
           src="https://img.freepik.com/fotos-premium/hombre-joven-aislado-cara-neutral_75922-474.jpg"
           alt=""
         />
+        <p class="mt-5 text-center">Julian Rodriguez</p>
       </div>
     </div>
   </TheCard>
@@ -88,10 +93,11 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { Button, TheCard, NavbarLink } from "flowbite-vue";
+import { Button, TheCard, NavbarLink, Rating } from "flowbite-vue";
 import { useRouter } from "vue-router";
 
 const isProviderVerified = ref(true);
+const ratingValue = ref(4.5);
 
 const router = useRouter();
 

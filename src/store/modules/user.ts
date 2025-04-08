@@ -128,12 +128,12 @@ export const useUserStore = defineStore("user-app", {
 
       const responseUserValue: UserInfo = {
         id: 123132,
-        full_name: "kakato",
-        email: "string",
+        full_name: "kakaroto",
+        email: "kakaroto@gmail.com",
         is_active: true,
         is_superuser: true,
         user_type: UserTypeEnum.SUPER_ADMIN,
-        password: "string",
+        password: "1234",
       };
 
       // if (!response.canAbort.value && response.statusCode.value === 200) {
