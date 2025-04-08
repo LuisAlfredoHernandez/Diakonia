@@ -93,8 +93,8 @@ const notifications = ref([
   {
     from_avatar_url:
       "https://flowbite.com/docs/images/people/profile-picture-5.jpg",
-    from: "Juan Pablo",
-    msg: "Hola como vas con el prospecto ?",
+    from: "Juan Ramirez",
+    msg: "Exactamente, en que calle estas?",
     timing: "a few moments ago",
   },
 ]);

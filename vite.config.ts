@@ -14,24 +14,6 @@ const pwaOptions: Partial<VitePWAOptions> = {
     name: "Flexus",
     short_name: "Flexus",
     theme_color: "#ffffff",
-    icons: [
-      {
-        src: "android-chrome-192x192.png", // <== don't add slash, for testing
-        sizes: "192x192",
-        type: "image/png",
-      },
-      {
-        src: "/android-chrome-512x512.png", // <== don't remove slash, for testing
-        sizes: "512x512",
-        type: "image/png",
-      },
-      {
-        src: "android-chrome-512x512.png", // <== don't add slash, for testing
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "any maskable",
-      },
-    ],
   },
   devOptions: {
     enabled: process.env.SW_DEV === "true",
