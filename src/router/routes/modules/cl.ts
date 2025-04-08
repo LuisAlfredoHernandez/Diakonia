@@ -2,7 +2,7 @@ import Index from "~/views/cl/index.vue";
 import ServicesIndex from "~/views/cl/servicios/index.vue";
 import Services from "~/views/cl/servicios/services.vue";
 import ServicesContractors from "~/views/cl/servicios/contractors.vue";
-import ClientChat from "~/views/cl/servicios/chat.vue";
+import ClientChat from "~/views/cl/servicios/chatView.vue";
 
 import { RouterNames } from "~/enums/routerNames";
 import { UserTypeEnum } from "~/enums";

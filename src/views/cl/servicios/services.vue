@@ -1,12 +1,29 @@
 <template>
-  <div class="place-items-center">
-    <div class="grid grid-cols-2 lg:grid-cols-2 place-items-center">
+  <button @click="router.back()" class="mr-4 text-gray-600">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 19l-7-7 7-7"
+      />
+    </svg>
+  </button>
+  <div class="mt-10 place-items-center">
+    <div class="grid grid-cols-2 lg:grid-cols-2 place-items-center gap-3">
       <Select
-        v-model="selected"
-        :options="countries"
+        v-model="selectedService"
+        :options="services"
         label="Busqueda por seleccion"
         placeholder="Selecciona "
         validation-status="success"
+        v-on:update:modelValue="handleSelectChange"
       >
       </Select>
 
@@ -15,6 +32,7 @@
         label="Busqueda costumizada"
         placeholder="Buscar..."
         size="sm"
+        v-on:update:modelValue="handleQueryInputChange"
       >
         <template #prefix>
           <svg
@@ -63,14 +81,10 @@ import { Button, Input, Select } from "flowbite-vue";
 import { RouterNames } from "~/enums";
 
 const querySearch = ref("");
-const selected = ref("");
+const selectedService = ref("");
 const router = useRouter();
 
-const navigateToContactorScreen = () => {
-  router.push({ name: RouterNames.CLIENT_CONTRATISTA });
-};
-
-const countries = [
+const services = [
   { value: "elec", name: "Electricista" },
   { value: "alba", name: "Albañil" },
   { value: "plo", name: "Plomero" },
@@ -89,4 +103,9 @@ const countries = [
   { value: "moem", name: "Montador de estructuras metalicas" },
   { value: "isd", name: "Instalador de sistemas de seguridad" },
 ];
+
+const handleSelectChange = () => (querySearch.value = "");
+const handleQueryInputChange = () => (selectedService.value = "");
+const navigateToContactorScreen = () =>
+  router.push({ name: RouterNames.CLIENT_CONTRATISTA });
 </script>

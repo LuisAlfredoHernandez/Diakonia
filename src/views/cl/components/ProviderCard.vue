@@ -7,7 +7,7 @@
           >Ver Comentarios
         </NavbarLink>
         <p class="text-sm mt-10">Ult vez hace (hr/min): {{ "02:15" }}</p>
-        <Button class="mt-5">
+        <Button class="mt-5" @click="navegarAChat()">
           <template #prefix>
             <svg
               fill="#ffffff"
@@ -89,5 +89,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Button, TheCard, NavbarLink } from "flowbite-vue";
+import { useRouter } from "vue-router";
+
 const isProviderVerified = ref(true);
+
+const router = useRouter();
+
+// Función para navegar al chat
+const navegarAChat = () => {
+  const profesionalId = 123; // Reemplaza con el ID real del profesional
+  router.push({ path: `/cliente/servicios/chat/${profesionalId}` });
+};
 </script>
