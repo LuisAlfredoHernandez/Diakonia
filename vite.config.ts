@@ -11,8 +11,8 @@ const pwaOptions: Partial<VitePWAOptions> = {
   base: "/",
   includeAssets: ["favicon.ico"],
   manifest: {
-    name: "Flexus",
-    short_name: "Flexus",
+    name: "DataKlipper",
+    short_name: "DK",
     theme_color: "#ffffff",
   },
   devOptions: {

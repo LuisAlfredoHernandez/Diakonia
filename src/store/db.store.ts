@@ -3,7 +3,7 @@ import { ref } from "vue";
 import type { FileInfo, MyFile } from "./db.types";
 import { useUserStore } from "./modules/user";
 
-const DB_NAME = "FlexusAppDB";
+const DB_NAME = "JobanyAppDB";
 const DB_VERSION = 1;
 const DB_OBJ_NAME = "CustomerImages";
 

@@ -1,9 +1,6 @@
 <template>
   <div id="dialParent" class="fixed right-6 bottom-24 group">
-    <div
-      id="dialContent"
-      class="flex flex-col items-center hidden mb-4 space-y-2"
-    >
+    <div id="dialContent" class="flex flex-col items-center mb-4 space-y-2">
       <button
         type="button"
         data-tooltip-target="tooltip-new-sale-order"
